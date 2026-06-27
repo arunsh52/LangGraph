@@ -5,6 +5,7 @@ from typing import TypedDict, Annotated
 from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import InMemorySaver
 
+
 llm = ChatOllama(model = 'llama3.2')
 
 class ChatState(TypedDict):
@@ -28,5 +29,6 @@ graph.add_edge('chat_node', END)
 checkpoint = InMemorySaver()
 
 chatbot = graph.compile(checkpointer = checkpoint)
+
 
 
